@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.unluac">
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+  <application android:icon="@drawable/icon"
+               android:label="@string/app_name"
+               android:largeHeap="true"
+               android:persistent="true">
+    <!-- Execute Lua Code -->
+    <activity
+      android:name=".Decode"
+      android:label="@string/app_name">
+      <!-- Compiled -->
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <category android:name="android.intent.category.BROWSABLE"/>
+        <data android:scheme="file"/>
+        <data android:mimeType="*/*"/>
+        <data android:host="*"/>
+        <data android:pathPattern=".*\\.luac"/>
+      </intent-filter>
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <category android:name="android.intent.category.BROWSABLE"/>
+        <data android:scheme="content"/>
+        <data android:host="*"/>
+        <data android:pathPattern=".*\\.luac"/>
+      </intent-filter>
+    </activity>
+    <!-- Welcome picture -->
+    <activity
+      android:name=".Decompile"
+      android:label="@string/app_name">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+  </application>
+</manifest>
